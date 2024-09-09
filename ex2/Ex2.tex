@@ -1,0 +1,316 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+    \input{framside.tex}
+
+    \section*{\textbf{Oppgave 1}}
+    \small\textbf{a)}
+    \begin{figure*}[ht]
+        \includegraphics*[width=\linewidth]{img/1a.PNG}
+    \end{figure*}
+    
+    
+    Her er alle hjørnepunktene som omfavner det beige området en lovlig løsning. (0, 0), (0, 1500), (250, 1500), (650, 1100), (1000, 400), (1000, 0).
+
+    \small\textbf{b)}
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $x_1$ & $x_2 $ & $12x_1 + 9x_2$ \\\hline
+            0 & 0 & 0 \\\hline
+            0 & 1500 & 13500 \\\hline
+            250 & 1500 & 16500 \\\hline
+            650 & 1100 & 17700 \\\hline
+            1000 & 400 & 15600 \\\hline
+            1000 & 0 & 12000 \\\hline
+        \end{tabular}
+    \end{table}
+    
+    Vi vet at dersom en optimal løsning finnes, er denne løsningen et av hjørnepunktene. Siden $x_1 = 650$ $x_2 = 1100$ er den beste løsningen blant alle lovlige hjørnepunkt,
+    følger det at det er den beste løsningen på problemet. Målfunksjonsverdien blir da 17700. De bindende restriksjonene er $4x_1 + 2x_2 <= 4800$ (blå) og $x_1 + x_2 <= 1750$ (rød).
+    
+    \begin{figure*}
+        \centering
+        \includegraphics*[width=\linewidth]{img/1b.PNG}
+        \caption*{Målfunksjon gjennom optimal verdi}
+    \end{figure*}
+    
+    \small\textbf{c)}
+    
+    Simplex-metoden vil følge denne stien: (0, 0) -- (1000, 0) -- (1000, 400) -- (650, 1100). Den baserer seg på hvilken retning som gir raskest økning i z per enhet.
+    Den vil stoppe i (650, 1100), ettersom ingen nabo øker målfunksjonsverdien.
+    
+    \small\textbf{d)}
+    
+    \begin{align*}
+        x_1 + s_1 &= 1000 \\
+        x_2 + s_2 &= 1500 \\
+        x_1 + x_2 + s_3 &= 1750 \\
+        4x_1 + 2x_2 + s_4 &= 4800 \\
+        x_1, x_2, s_1, s_2, s_3, s_4 &>= 0
+    \end{align*}
+
+    
+    \begin{figure*}[ht]
+        \centering
+        \includegraphics*[width=\linewidth]{img/1d.PNG}
+        \caption*{Graf i a) der restriksjoner uttrykkes ved slakkvariablene.}
+    \end{figure*}
+
+    \small\textbf{e)}
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            $x_1$ & $x_2 $ & $s_1$ & $s_2$ & $s_3$ & $s_4$ \\\hline
+            0 & 0 & 1000 & 1500 & 1750 & 4800 \\\hline
+            0 & 1500 & 1000 & 0 & 250 & 1800 \\\hline
+            250 & 1500 & 750 & 0 & 0 & 800 \\\hline
+            650 & 1100 & 350 & 400 & 0 & 0 \\\hline
+            1000 & 400 & 0 & 1100 & 350 & 0 \\\hline
+            1000 & 0 & 0 & 1500 & 750 & 800 \\\hline
+        \end{tabular}
+    \end{table}
+    
+    Tabellen viser basisløsningen for alle lovlige verdier. 
+    
+    Restriksjon (2) og (4) møtes i punkt (450, 1500). Her blir basisløsningen 450, 1500, 550, 0, -200, 0.
+    
+    Vi kan se at denne løsningen ikke er gyldig siden en av slakkvariablene er negativ. Dette er det samme som å bruke for mye av en ressurs. 
+
+    \small\textbf{f)}
+
+    $s_3$ og $s_4$ er ved nedre grense i optimal løsning. $x_1, x_2, s_1, s_2$ er da basis.
+
+    
+    \section*{\textbf{Oppgave 2}}
+    \small\textbf{a)}
+    \begin{figure*}[ht]
+        \includegraphics*[width=\linewidth]{img/2a.PNG}
+    \end{figure*}
+    
+    
+    Alle hjørnepunktløsninger er markert. Tillatte er grønne, mens ikke-tillatte er røde.
+
+    \small\textbf{b)}
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $x_1$ & $x_2 $ & z = $x_1 + 2x_2$ \\\hline
+            0 & 0 & 0 \\\hline
+            0 & 8/3 & 16/3 \\\hline
+            2 & 2 & 6 \\\hline
+            4 & 0 & 4 \\\hline
+        \end{tabular}
+    \end{table}
+    
+    Vi ser at $x_1 = 2, x_2 = 2$ gir optimal løsning. 
+    
+    \small\textbf{c)}
+    
+    Sekvensen som brukes av Simplex metoden er (0, 0) -- (0, 8/3) -- (2, 2). Her antar vi at iterasjonen starter i (0, 0).
+    
+    \pagebreak\small\textbf{d)}
+
+    \begin{align}
+        z - x_1 - 2x_2 &= 0 \\ 
+        x_1 + 3x_2 + s_1 &= 8 \\
+        x_1 + x_2 + s_2 &= 4
+    \end{align}
+
+    \small\textbf{e)}
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            Løsning index & $x_1$ & $x_2 $ & $s_1$ & $s_2$ & Basis & Ikke-basis & z \\\hline
+            1 & 0 & 0 & 8 & 4 & $s_1, s_2$ & $x_1, x_2$ & 0 \\\hline
+            2 & 0 & 8/3 & 0 & 4/3 & $x_2, s_2$ & $x_1, s_1$ & 16/3 \\\hline
+            3 & 2 & 2 & 0 & 0 & $x_1, x_2$ & $s_1, s_2$ & 6 \\\hline
+            4 & 4 & 0 & 4 & 0 & $x_1, s_1$ & $x_2, s_2$ & 4 \\\hline
+        \end{tabular}
+    \end{table}
+
+    \small\textbf{f)}
+    
+    Demonstrerer at basisløsningen oppfyller likningssystemet ved å sette inn verdiene i likning (1), (2), (3)
+    
+    \vspace*{12pt}\textbf{Løsning 1}
+    
+    (1): 0 - 0 - 2 $\times$ 0 = 0
+    
+    (2): 0 + 3 $\times$ 0 + 8 = 8
+    
+    (3): 0 + 0 + 4 = 4
+    
+    \vspace*{12pt}\textbf{Løsning 2}
+    
+    (1): 16/3 - 0 - 2 $\times$ 8/3 = 0
+
+    (2): 0 + 3 $\times$ 8/3 + 0 = 8
+    
+    (3): 0 + 8/3 + 4/3 = 4
+    
+    \vspace*{12pt}\textbf{Løsning 3}
+    
+    (1): 6 - 2 - 2 $\times$ 2 = 0
+    
+    (2): 2 + 3 $\times$ 2 + 0 = 8
+    
+    (3): 2 + 2 + 0 = 4
+    
+    \vspace*{12pt}\textbf{Løsning 4}
+    
+    (1): 4 - 4 - 2 $\times$ 0 = 0
+    
+    (2): 4 + 3 $\times$ 0 + 4 = 8
+    
+    (3): 4 + 0 + 0 = 4
+    
+    \vspace*{12pt}
+    Siden alle uttrykkene er gyldige, vet vi at basis-løsningen er en løsning på likningssystemet.
+    
+    \vspace*{12pt}\small\textbf{g)}
+    
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+            Løsning index & $x_1$ & $x_2 $ & $s_1$ & $s_2$ & Basis & Ikke-basis & z \\\hline
+            5 & 0 & 4 & -4 & 0 & $s_1, x_2$ & $x_1, s_2$ & 8 \\\hline
+            6 & 8 & 0 & 0 & -4 & $x_1, s_2$ & $x_2, s_1$ & 8 \\\hline
+        \end{tabular}
+    \end{table}
+    
+    \vspace*{12pt}\small\textbf{h)}
+    
+    \vspace*{12pt}\textbf{Løsning 5}
+    
+    (1): 8 - 0 - 2 $\times$ 4 = 0
+    
+    (2): 0 + 3 $\times$ 4 + -4 = 8
+    
+    (3): 0 + 4 + 0 = 4
+    
+    \vspace*{12pt}\textbf{Løsning 6}
+    
+    (1): 8 - 8 - 2 $\times$ 0 = 0
+    
+    (2): 8 + 3 $\times$ 0 + 0 = 8
+    
+    (3): 8 + 0 + -4 = 4
+    
+    \vspace*{12pt}\small\textbf{i)}
+    
+    For å systematisere den algebraiske metoden har jeg gjort noen endringer fra det som ble gjennomgått i video. Jeg fører opp hele problemet (på utvidet form) i en matrise, men utfører bare Gauss-Jordan på kolonnene som er i basis (hvite).
+    Kolonnene som ikke er i basis (grå) "henger bare med", slik at de kan brukes i neste iterasjon. Kolonnene representerer koeffisientene til $z, x_1, x_2, s_1, s_2$ og konstanten i likning (1), (2), (3). 
+    
+    \vspace*{12pt}Starter med $x_1, x_2$ som ikke-basis. 
+    
+    \begin{align*}
+        \left[
+            \begin{array}{c>{\columncolor{gray!30}}c>{\columncolor{gray!30}}ccc|c}
+            1 & -1 & -2 & 0 & 0 & 0 \\
+            0 & 1  & 3 & 1 & 0 & 8 \\
+            0 & 1  & 1 & 0 & 1 & 4
+        \end{array}
+        \right]
+    \end{align*}
+    
+    Løsningen er ikke optimal, fordi en økning i disse vil øke z. 
+    Tar $x_2$ inn i basis fordi koeffisienten er større for $x_2$ enn for $x_1$. Tar $s_1$ ut av basis fordi $\frac{8}{3} < \frac{4}{1}$
+    
+    \begin{align*}
+        \left[
+            \begin{array}{c>{\columncolor{gray!30}}cc>{\columncolor{gray!30}}cc|c}
+                1 & -1 & -2 & 0 & 0 & 0 \\
+                0 & 1  & 3 & 1 & 0 & 8 \\
+                0 & 1  & 1 & 0 & 1 & 4
+            \end{array}
+            \right]
+            & \Rightarrow
+            \left[
+                \begin{array}{c>{\columncolor{gray!30}}cc>{\columncolor{gray!30}}cc|c}
+                    1 & -1 & -2 & 0 & 0 & 0 \\
+                    0 & 1/3 & 1 & 1/3 & 0 & 8/3 \\
+                    0 & 1 & 1 & 0 & 1 & 4
+                \end{array}
+                \right]
+                & \Rightarrow
+                \left[
+                    \begin{array}{c>{\columncolor{gray!30}}cc>{\columncolor{gray!30}}cc|c}
+                        1 & -1/3 & 0 & 2/3 & 0 & 16/3 \\
+                        0 & 1/3 & 1 & 1/3 & 0 & 8/3 \\
+        0 & 2/3 & 0 & -1/3 & 1 & 4/3
+        \end{array}
+        \right]
+    \end{align*}
+    
+    Forklaring: 
+    
+    Steg 1: (ii) = (ii) / 3
+    
+    Steg 2: (i) = (i) + 2(ii), (iii) = (iii) - (ii)
+    
+    \vspace*{12pt}Løsningen er ikke optimal, fordi $A_{12}$ er negativ. Tar dermed $x_1$ inn i basis.
+    Tar $s_2$ ut av basis, ettersom $\frac{4/3}{2/3} < \frac{8/3}{1/3}$.
+    
+    \begin{align*}
+        \left[
+            \begin{array}{ccc>{\columncolor{gray!30}}c>{\columncolor{gray!30}}c|c}
+                1 & -1/3 & 0 & 2/3 & 0 & 16/3 \\
+                0 & 1/3 & 1 & 1/3 & 0 & 8/3 \\
+                0 & 2/3 & 0 & -1/3 & 1 & 4/3
+            \end{array}
+            \right]
+            & \Rightarrow
+            \left[
+                \begin{array}{ccc>{\columncolor{gray!30}}c>{\columncolor{gray!30}}c|c}
+                    1 & -1/3 & 0 & 2/3 & 0 & 16/3 \\
+                    0 & 1 & 0 & -1/2 & 3/2 & 2 \\
+                    0 & 1/3 & 1 & 1/3 & 0 & 8/3
+                \end{array}
+                \right]
+                & \Rightarrow
+                \left[
+                    \begin{array}{ccc>{\columncolor{gray!30}}c>{\columncolor{gray!30}}c|c}
+                        1 & 0 & 0 & 5/6 & 1/2 & 6 \\
+                        0 & 1 & 0 & -1/2 & 3/2 & 2 \\
+                        0 & 0 & 1 & 1/2 & -1/2 & 2
+                    \end{array}
+                    \right]
+                \end{align*}
+                
+    Forklaring: 
+    
+    Steg 1: (iii) = 3(iii) / 2, bytter plass (ii) og (iii) 
+
+    Steg 2: (i) = (i) + (ii) / 2, (iii) = (iii) - (ii) / 2
+    \vspace*{12pt}
+    
+    Denne løsningen er optimal. Både $A_{14}$ og $A_{15}$ er positive. Kan lese av resultatet: z = 6, $(x_1, x_2, s_1, s_2) = (2, 2, 0, 0)$.
+    
+    
+    \vspace*{12pt}\small\textbf{j)}
+
+    Jeg oppdager nå at simplex-metoden i tabellform er \textit{veldig} lik min variant av den algebraiske formen. Jeg ser derfor ikke hensikten med å gjøre oppgaven på nytt, spesielt ved tanke på at det tar
+    fryktelig lang tid å føre inn i Latex. Jeg får heller bruke tabellformen en annen gang.
+
+
+
+\end{document}
