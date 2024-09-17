@@ -5,6 +5,7 @@
 \usepackage{caption}
 \usepackage[hidelinks]{hyperref}
 \setlength{\parindent}{0pt}
+\usepackage{pdfpages}
 
 
 \begin{document}
@@ -12,7 +13,7 @@
 
     \captionsetup[figure]{labelformat=empty}
 
-    
+        
     \section*{\textbf{Oppgave 1}}
     \vspace*{12pt}\small\textbf{a)}
     \begin{figure*}[ht]
@@ -21,31 +22,14 @@
         \caption{Mulighetsområdet med en vilkårlig valgt målfunksjon}
     \end{figure*}
     
-    \vspace*{12pt}\small\textbf{b)}
+    \vspace*{12pt}\small\textbf{b}
     
-    
-    Introduserer $x_1' = x_1 + 2$, slik at restriksjon (5) ikke trenger en slakk-variabel. Skriver den nye variabelen uten merking nedenfor.
-    \[
-    \begin{array}{rrrrrrrl}
-        z & -3(x_1 + 2) & -x_2 &&&&& = 0 \\ 
-        & +(x_1 + 2) & -x_2 & +s_1 &&&& = 5 \\ 
-        & +3(x_1 + 2) & -2x_2 &&+s_2&&& = 18 \\ 
-        & +4(x_1 + 2) & +2x_2 &&&-s_3&& = 9 \\ 
-        && +x_2 &&&&+s_4& = 6 \\ 
-    \end{array}
-    \]
-    Forenkles til
-    \[
-    \begin{array}{rrrrrrrl}
-        z & -3x_1 & -x_2 &&&&& = 6 \\ 
-        & +x_1 & -x_2 & +s_1 &&&& = 3 \\ 
-        & +3x_1 & -2x_2 &&+s_2&&& = 12 \\ 
-        & +4x_1 & +2x_2 &&&-s_3&& = 1 \\ 
-        && +x_2 &&&&+s_4& = 6 \\ 
-    \end{array}
-    \]
+    \includepdf[pages=1, trim=0 0 105mm 0, clip, width=1.6\textwidth]{oppg1.pdf}
+
                 
-    \vspace*{12pt}\small\textbf{c)}
+    
+    \includepdf[pages=1, trim=0 0 105mm 0, clip, width=1.6\textwidth]{Oppgave 2.pdf}
+
                 
 
 \end{document}
