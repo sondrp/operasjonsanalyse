@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+\input{../template/framside.tex}
+\setExerciseNumber{5}
+
+\section*{\textbf{Problem 1}}
+\vspace*{12pt}\small\textbf{a)}
+
+La $x_i$ være en binær variabel som representerer om vi investerer i alternativ i (for i = A, B, C, D, E).
+$x_i$ = 1 hvis vi investerer i alternativ i, og $x_i$ = 0 ellers.
+
+\vspace*{12pt}
+Målfunksjon (max inntekt):
+
+max z = $240x_A + 170x_B + 200x_C + 140x_D + 150x_E$
+
+\vspace*{12pt}
+Begrensning på budsjett:
+
+$65x_A + 35x_B + 50x_C + 25x_D + 70x_E \leq 150$
+
+\vspace*{12pt}
+Heltallsbetingelser:
+
+$x_A, x_B, x_C, x_D, x_E \in \{0, 1\}$
+
+\vspace*{12pt}\small\textbf{b)}
+Avhengighet mellom B og (A eller E):
+
+Hvis B velges, må enten A eller E også velges. Dette uttrykkes:
+\begin{align*}
+    x_B \leq  x_A + x_E
+\end{align*}
+
+Nå er det ikke mulig å investere i B uten investering i A og/eller E.
+
+\vspace*{12pt}\small\textbf{c)}
+
+Dersom det investeres i B kan det ikke investeres i C. Dette kan uttrykkes sliK:
+\begin{align*}
+    x_B + x_C \leq 1
+\end{align*}
+
+Nå er det ikke mulig å investere i begge.
+
+\section*{\textbf{Problem 2}}
+\vspace*{12pt}\small\textbf{a)}
+
+\begin{align*}
+    \min Z       & = \sum_{t=1}^6 (100x_t + 180y_t + 15z_t + 2L_t)             \\
+    \text{s.t. } & P_t + 0.9L_{t-1} - L_t = D_t                    & \forall t \\
+                 & P_t \leq 5000x_t + 7500y_t                      & \forall t \\
+                 & x_t + y_t = 1                                   & \forall t \\
+                 & z_t \geq y_t - y_{t-1}                          & \forall t \\
+                 & L_t \leq 5000                                   & \forall t \\
+                 & L_0 = 3000, L_6 \geq 2000                                   \\
+                 & x_t, y_t, z_t \in \{0,1\}, P_t, L_t \geq 0      & \forall t
+\end{align*}
+
+\vspace*{12pt}\small\textbf{b)}
+
+\begin{align*}
+     & P_t \leq 5000x_t + 7500y_t + 500w_t & \forall t \\
+     & Z = Z + C\sum_{t=1}^6 w_t                       \\
+     & w_t \in \{0,1\}                     & \forall t
+\end{align*}
+
+\section*{\textbf{Problem 3}}
+
+\begin{align*}
+    \max Z       & = (70 - 2 \cdot 21 - 1 \cdot 9 - 9)x_1 + (130 - 3 \cdot 21 - 3 \cdot 9 - 20)x_2 \\
+    \text{s.t. } & 2x_1 + 3x_2 \leq 24                                                             \\
+                 & x_1 + 3x_2 \leq 18                                                              \\
+                 & x_1 + x_2 \geq 11                                                               \\
+                 & x_1, x_2 \geq 0
+\end{align*}
+
+Her er det greit å se bort fra heltallskrav fordi:
+(i) Det blir mye lettere å regne på.
+(ii) Avrunding til nærmeste heltall vil ha liten innvirking på optimal løsning.
+(iii) Enheter som ikke er helt ferdig kan fortsettes på i neste periode.
+
+\end{document}
