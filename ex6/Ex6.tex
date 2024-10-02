@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+\input{../template/framside.tex}
+\setExerciseNumber{6}
+
+\section*{\textbf{Problem 1}}
+\vspace*{12pt}\small\textbf{a)}
+
+Dette er et maksimeringsproblem. Dette kan vi se fordi verdien av z blir mindre når vi beveger oss nedover i treet. 
+
+\vspace*{12pt}\small\textbf{b)}
+
+Øvre grense er z=75.6, som er roten av treet.
+Nedre grense er z=71.1, som er beste heltallsløsning vi vi har funnet så langt. 
+
+Men det går an å se seg frem til at z=73.2 er den egentlige øvre grensen. Ettersom vi bare vil undersøke node 5 (forklares i c), er dette den eneste muligheten vi har til å forbedre
+nedre grensen. 
+
+\vspace*{12pt}\small\textbf{b)}
+
+Det er bare aktuelt å gå videre med noder (som ikke er heltallig) der verdien er høgere en den nedre grensen vår. Dette gjelder bare node 5.
+
+\section*{\textbf{Problem 2}}
+\vspace*{12pt}\small\textbf{a)}
+
+La $x_1$ være antall store figurer og $x_2$ være antall små figurer.
+
+Maksimer: $Z = 50x_1 + 40x_2$
+
+Med følgende begrensninger:
+
+$2x_1 + 3x_2 \leq 20$ (tid)
+
+$5x_1 + 2x_2 \leq 35$ (material)
+
+$x_1, x_2 \geq 0$
+
+\vspace*{12pt}\small\textbf{b)}
+
+\begin{figure*}[ht]
+    \includegraphics*[width=0.5\linewidth]{img/image.png}
+\end{figure*}
+
+Optimal løsning (z, $x_1$, $x_2$)=(380, 6, 2)
+
+\section*{\textbf{Problem 3}}
+
+\begin{figure*}[ht]
+    \includegraphics*[width=\linewidth]{img/task3.png}
+\end{figure*}
+
+Må ha gjort noe feil her, fordi dette var første løsningen solveren gav meg. Dermed blir det ingen beslutninger å vise. 
+Skal finne ut av det en annen gang, har litt dårlig tid.
+
+\end{document}
