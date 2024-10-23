@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+\input{../template/framside.tex}
+\setExerciseNumber{9}
+
+\section*{\textbf{Problem 1}}
+\vspace*{12pt}\small\textbf{a) Utled EOQ formelen}
+
+La
+\begin{align*}
+  Q&: bestillingsmengden\\
+  K&: Bestillingskostnad (fast)\\
+  c&: Bestillingskostnad per enhet\\
+  h&: \text{Lagerkostnad per enhet per tidsenhet}\\
+  L(t)&: \text{Lagerbeholdning ved tidspunkt t}\\
+\end{align*}
+Antar at D er kjent konstant etterspørsel. Da vil $L(t) = Q - Dt$, og en periode $L(T) = 0 \Rightarrow T = Q/D$.
+
+Målet er å minimere kostnader for en periode. 
+\vspace*{12pt}
+
+Bestillingskostnad for en periode: K + cQ
+
+Lagerkostnad for en periode: $h \times \frac{Q^2}{2d}$
+
+Total kostnad for en periode: $K + cQ + h \times \frac{Q^2}{2d}$
+
+\vspace*{12pt}
+
+Her er $Q^2/2d$ alle enhetene som må betales for på lager (integral av L(t) fra 0 til T). 
+
+\vspace*{12pt}
+F = Kostnad per tidsenhet =  Total kostnad / tid = $\frac{K + cQ + h \times \frac{Q^2}{2d}}{Q/D} = \frac{DK}{Q} + cD + \frac{hQ}{2}$
+
+$\frac{dF}{dt} = 0 \Rightarrow -\frac{DK}{Q^2} + \frac{h}{2} \Rightarrow \underline{Q = \sqrt{\frac{2DK}{h}}}$
+
+\vspace*{12pt}\small\textbf{b)}
+
+Oppgitt: 
+
+\begin{align*}
+  D &= 500 \times 12 \\
+  K &= 1000 \\
+  c &= 400 \\
+  h &= 40 + 0.15*400 \\
+\end{align*}
+
+$Q^* = \sqrt{\frac{2 * 500 * 12 * 1000}{40 + 0.15*400}} = 346.4$ enheter bør bestilles. 
+
+$T = Q/D \times 12 \approx 0.7$ måneder mellom hver bestilling.
+
+\vspace*{12pt}\small\textbf{c)}
+
+Utvider variablene i a) ved å legge til p for shortage cost. Bruker s som betegnelse på maks lagerbeholdning. Denne verdien er nå
+ulik Q, siden vi bestiller mer en vi vil ha på lager, ettersom noe må etterleveres.
+
+\vspace*{12pt}
+
+Bestillingskostnad for en periode: K + cQ
+
+Lagerkostnad for en periode: $h \times \frac{s^2}{2d}$
+Shortage cost for en periode: $p \times \frac{(Q-s)^2}{2d}$
+
+Total kostnad for en periode: $K + cQ + h\frac{Q^2}{2d} + p\frac{(Q-s)^2}{2d}$
+
+F = Kostnad per tidsenhet = $\frac{KD}{Q} + cD + \frac{hS^2+p(Q-S)^2}{2Q}$
+\vspace*{12pt}
+
+Løser nå $\frac{\partial F}{\partial Q} = 0$ og $\frac{\partial F}{\partial S} = 0$. Dette gir et system med likninger som man kan regne på og komme fram til
+
+$Q^* = \sqrt{\frac{2DK}{h}}\sqrt{\frac{p+h}{p}}, S^* = \sqrt{\frac{2DK}{h}}\sqrt{\frac{p}{p+h}}$
+
+\vspace*{12pt}\small\textbf{d)}
+
+p = 150, så
+D' = 6000
+h = 40 + 0.15 * 400 = 2400
+
+$Q^* = \sqrt{\frac{2*6000*1000}{2400}}\sqrt{\frac{150+2400}{150}} = 291$ enheter.
+$S^* = \sqrt{\frac{2*6000*1000}{2400}}\sqrt{\frac{150}{150 + 2400}} = 17$ enheter.
+
+\vspace*{12pt}\small\textbf{e)}
+
+Ledetid vil ikke påvirke noe særlig. Alt som må endres er at bestillingen må skje 1 måned tidligere.
+
+\pagebreak\section*{\textbf{Problem 2}}
+
+\begin{figure*}[ht]
+  \includegraphics*[width=\linewidth]{img/2.png}
+\end{figure*}
+
+\pagebreak\section*{\textbf{Problem 3}}
+\vspace*{12pt}\small\textbf{a)}
+
+Gitt: 
+\begin{align*}
+  K &= 1500 \\        
+  h &= 3000 \\        
+  p &= 1000 \\        
+  d &= 900 \\         
+\end{align*}
+
+% Steg 1: Beregn standard EOQ
+$EOQ_standard = sqrt((2 * K * d) / h)$
+$EOQ_standard = sqrt((2 * 1500 * 900) / 3000) = 30.98 \approx 31 $ biler
+
+% Steg 2: Beregn EOQ med shortage
+$EOQ_shortage = EOQ_standard * sqrt((p + h) / p)$
+
+$EOQ_shortage = 30.98 * sqrt((1000 + 3000) / 1000) = 30.98 * sqrt(4) = 61.96 \approx 62 $ biler
+
+% Steg 3: Beregn maksimalt lagernivå S*
+$S = EOQ_shortage * (p / (p + h))$
+
+$S = 62 * (1000 / (1000 + 3000)) = 62 * 0.25 = 15.5 \approx 16 $ biler
+
+
+\vspace*{12pt}\small\textbf{b)}
+
+Gitt:
+
+\begin{align*}
+  \mu_L &= 50 \\
+  \sigma_L &= 15   \\    
+  z_0.75 &= 0.674 
+\end{align*}
+
+
+$R = \mu_L + z_0.75 * \sigma_L$
+
+$R = 50 + (0.674 * 15) = 50 + 10.11 = 60.11 \approx 60$ biler.
+
+\vspace*{12pt}\small\textbf{c)}
+
+$SS = R - \mu_L = 60 - 50 = 10$ biler
+
+
+
+
+
+\end{document}
