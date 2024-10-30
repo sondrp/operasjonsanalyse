@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+\input{../template/framside.tex}
+\setExerciseNumber{1}
+
+\section*{\textbf{Problem 1}}
+\vspace*{12pt}\small\textbf{a)}
+
+\begin{align*}
+  E[selge] &= 0.6 * 9 + 0.4 * 9 = 9 \\
+  E[bygge] &= 0.6 * 25 - 0.4 * 12.5 = 10
+\end{align*}
+
+Fra Bayes' beslutningsregel bør det bygges.
+
+\vspace*{12pt}\small\textbf{b)}
+
+Ved perfekt informasjon er fortjenesten 25 millioner ved gode forhold, og 9 millioner ved dårlige forhold. 
+
+$EV_{perfekt informasjon} = 0.6 * 25 + 0.4 * 9 = 18.6$ millioner. $EVPI = EV_{perfekt informasjon} - EV = 18.6 - 10 = \underline{8.6}$ millioner. 
+
+\vspace*{12pt}\small\textbf{c)}
+
+Symboler: G -> gode forhold, B -> dårlige forhold. TG -> test viser til gode forhold, TB -> test viser til dårlige forhold.
+
+Sannsynligheter:
+
+\begin{align*}
+  P(G) &= 0.6 \\
+  P(B) &= 0.4 \\
+  P(TG|G) &= 0.8 \\
+  P(TB|G) &= 0.2 \\
+  P(TG|B) &= 0.1 \\
+  P(TB|B) &= 0.9 \\
+  P(TG) &= P(TG|G)P(G) + P(TG|B)P(B) = 0.52 \\
+  P(TB) &= 1 - P(TG) = 0.48 \\ 
+  P(G|TG) &= \frac{P(TG|G)P(G)}{P(TG|G)P(G) + P(TG|B)P(B)} = 0.923 \\
+  P(B|TG) &= 1 - P(G|TG) = 0.077 \\
+\end{align*}
+
+\pagebreak Her er beslutnigstreet med Sannsynligheter: 
+
+\begin{figure*}[ht]
+  \centering
+  \includegraphics*[width=0.8\textwidth]{img/1c.PNG}
+\end{figure*}
+
+For å finne ut hvor mye konsulentjobben er verdt, ser må vi finne forventet verdi av å leie konsulentene. Bruker utregningene i forrige figur til å finne ut av dette:
+
+\begin{align*}
+  EV_1 &= 25 \times 0.923 - 12.5 \times 0.077 = 22.1 \\
+  EV_2 &= 25 \times 0.25 - 12.5 \times 0.75 = -3.125 \\
+  EV_3 &= EV_1 \times 0.52 + 9 \times 0.48 = 15.8 \\ 
+\end{align*}
+
+
+\begin{figure*}[ht]
+  \centering
+  \includegraphics*[width=0.8\textwidth]{img/1c2.PNG}
+\end{figure*}
+
+Grønn node er gode forhold som gir fortjeneste på 25 millioner. Rød node er tap av 12.5, og gul node er salg. For hver beslutning ser vi på vilke valg som gir høyest forventet fortjeneste, og 
+jobber oss bakover. Til slutt ser vi at forventet verdi etter å leie konsulenter er 5.8 millioner høyere en om selskapet ikke gjør det. Derfor er dette en øvre grense på hva de burde være villig til å betale. 
+
+\pagebreak
+
+\vspace*{12pt}\small\textbf{d)}
+
+EVE er hvor mye man forventer å tjene på å leie inn konsulentene. Det blir 5.8 millioner.
+
+\vspace*{12pt}\small\textbf{e)}
+\pagebreak
+
+
+Nå får alle slutt-nodene etter konsulentjobben redusert verdi på 3 millioner. 
+
+\begin{align*}
+  EV_1 &= 22 \times 0.923 - 15.5 \times 0.077 = 19.11 \\
+  EV_3 &= 22 \times 0.25 - 15.5 \times 0.75 = -6.125 \\
+  EV_5 &= 19.11 \times 0.52 + 1 \times 0.48 = 15.8 \\ 
+\end{align*}
+
+\begin{figure*}[ht]
+  \centering
+  \includegraphics*[width=0.8\textwidth]{img/1c3.PNG}
+\end{figure*}
+
+Strategien er fortsatt den samme, men fortjenesten er mindre. Ansett konsulenter, og bygg ut dersom de sier at forholdene blir gunstig. Ellers selg.
+
+\section*{\textbf{Problem 1}}
+\vspace*{12pt}\small\textbf{a)}
+
+$EV = 0.2 \times 1 + 0.5 \times 0.5 - 0.3 \times 1 = 0.15$ millioner i forventet verdi. Bedriften bør starte. 
+
+\vspace*{12pt}\small\textbf{b)}
+
+$EV_{perfekt informasjon} = 0.2 \times 1 + 0.5 \times 0.5 = 0.45$ millioner.
+
+$EVPI = 0.45 - 0.15 = 0.3$ millioner er verdien av perfekt informasjon. 
+
+\vspace*{12pt}\small\textbf{c)}
+
+Dersom bedriften ikke er risikonøytral, vil de kunne lande på en annen konklusjon.
+
+\end{document}
